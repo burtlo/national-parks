@@ -10,6 +10,10 @@ pkg_svc_run="mongod --config $pkg_svc_config_path/mongod.conf"
 pkg_svc_user=hab
 pkg_svc_group=hab
 
+pkg_exports=(
+  [port]=mongod.net.port
+)
+
 do_build() {
   return 0
 }
