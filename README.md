@@ -8,14 +8,6 @@ Install Maven. I am assuming that java is already installed with these tools.
 $ brew install maven
 ```
 
-## Populate the database
-
-Add all the national parks data to the mongo database
-
-```
-$ mongoimport --drop -d demo -c nationalparks --type json --jsonArray --file ./national-parks.json $*
-```
-
 ## Run the application (Mac)
 
 Install Tomcat
@@ -32,3 +24,11 @@ $ catalina run
 ```
 
 Visit http://localhost:8080/national-parks
+
+## Populate the database
+
+Add all the national parks data to the mongo database
+
+```
+$ mongoimport --drop -d demo -c nationalparks --type json --jsonArray --file ./national-parks.json $*
+```
