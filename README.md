@@ -31,3 +31,16 @@ Visit http://localhost:8080/national-parks
 > To proxy this port outside the studio you will need to run:
 >
 > $ export HAB_DOCKER_OPTS="-p 8080:8080"
+
+
+## Build and Run (Docker Compose)
+
+```
+$ hab studio enter
+$ build
+$ hab pkg export docker results/origin-national-parks...
+$ build mongodb
+$ hab pkg export docker results/origin-mongodb...
+$ exit
+$ docker-compose up
+```
