@@ -1,0 +1,9 @@
+version: '2'
+services:
+  mongodb:
+    image: franklinwebber/mongodb
+  national-parks:
+    image: franklinwebber/national-parks
+    command: --peer mongodb --bind database:mongodb.default
+    ports:
+      - 8080:8080
