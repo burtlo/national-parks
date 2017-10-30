@@ -8,8 +8,15 @@ echo "Starting Apache Tomcat"
 export JAVA_HOME={{pkgPathFor "core/jre8"}}
 export TOMCAT_HOME={{pkgPathFor "core/tomcat8"}}/tc
 
+{{#if bind.database ~}}
+export CATALINA_OPTS="-DMONGODB_SERVICE_HOST={{bind.database.first.sys.ip}} -DMONGODB_SERVICE_PORT={{bind.database.first.cfg.port}}"
+{{else ~}}
+export CATALINA_OPTS="-DMONGODB_SERVICE_HOST={{cfg.mongodb_service_host}} -DMONGODB_SERVICE_PORT={{cfg.mongodb_service_port}}"
+{{/if ~}}
+
 echo "JAVA_HOME is $JAVA_HOME"
 echo "TOMCAT_HOME is $TOMCAT_HOME"
+echo "CATALINA_OPTS is $CATALINA_OPTS"
 
 cp {{pkg.path}}/*.war $TOMCAT_HOME/webapps
 

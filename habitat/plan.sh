@@ -7,6 +7,10 @@ pkg_build_deps=( core/maven )
 pkg_deps=( core/tomcat8 core/jre8 )
 pkg_svc_user=root
 
+pkg_binds=(
+  [database]="port"
+)
+
 do_build() {
     cp -r src $HAB_CACHE_SRC_PATH/$pkg_dirname/src
     cp pom.xml $HAB_CACHE_SRC_PATH/$pkg_dirname/pom.xml
