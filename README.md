@@ -10,7 +10,7 @@ $ hab studio enter
 ## Run the database (Habitat)
 
 ```
-$ hab sup start results/origin-mongodb-3.2.9-TIMESTMAP.hart
+[2][default:/src:0]# hab sup start results/origin-mongodb-3.2.9-TIMESTMAP.hart
 ```
 
 ## Build the application (Habitat)
@@ -23,7 +23,7 @@ $ hab studio enter
 ## Run the application (Habitat)
 
 ```
-$ hab sup start results/origin-national-parks-0.1.0-TIMESTMAP.hart --peer 127.0.0.1 --bind database:mongodb.default
+[2][default:/src:0]# hab sup start results/origin-national-parks-0.1.0-TIMESTMAP.hart --peer 127.0.0.1 --bind database:mongodb.default
 ```
 
 Visit http://localhost:8080/national-parks
@@ -37,10 +37,10 @@ Visit http://localhost:8080/national-parks
 
 ```
 $ hab studio enter
-$ build
-$ hab pkg export docker results/origin-national-parks...
-$ build mongodb
-$ hab pkg export docker results/origin-mongodb...
-$ exit
+[1][default:/src:0]# build
+[2][default:/src:0]# hab pkg export docker results/origin-national-parks...
+[3][default:/src:0]# build mongodb
+[4][default:/src:0]# hab pkg export docker results/origin-mongodb...
+[5][default:/src:0]# exit
 $ docker-compose up
 ```
