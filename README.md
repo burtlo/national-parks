@@ -1,23 +1,29 @@
-## Running in docker studio
+# National Parks
+
+## Build the application (Mac)
+
+Install Maven and Tomcat. I am assuming that java is already installed with these tools.
 
 ```
-$env:HAB_DOCKER_OPTS="-p 8080:8080"
-hab studio enter
-hab start mwrock/np-mongodb
-hab start mwrock/national-parks --bind database:np-mongodb.default
+$ brew install maven
+$ brew install tomcat
 ```
 
-## Starting the supervisor in studio
+## Populate the database
+
+Add all the national parks data to the mongo database
+
 ```
-hab sup run > /hab/sup/default/sup.log &
+$ mongoimport --drop -d demo -c nationalparks --type json --jsonArray --file ./national-parks.json $*
 ```
 
-## Pre-Demo checklist
+## Run the application (Mac)
 
-* Have studio open
-* build at least once
-* start np-mongodb
-* Have open SSH sessions to hab1-3 and docker host
-* increment NP version and commit (but do not push)
-* make sure mongodb container is running on docker host
-* have browser tabs open to my origins, local app, and azure app
+Copy the built war into tomcat's war directory.
+
+```
+$ cp target/national-parks.war $(catalina -h | grep CATALINA_HOME | cut -d ' ' -f 5)/webapps
+$ catalina run
+```
+
+Visit http://localhost:8080/national-parks
