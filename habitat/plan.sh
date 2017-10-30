@@ -4,6 +4,8 @@ pkg_version="0.1.0"
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_license=('Apache-2.0')
 pkg_build_deps=( core/maven )
+pkg_deps=( core/tomcat8 core/jre8 )
+pkg_svc_user=root
 
 do_build() {
     cp -r src $HAB_CACHE_SRC_PATH/$pkg_dirname/src
