@@ -58,7 +58,7 @@ pid_file_path = ""
 [mongod.net]
 port = 27017
 # This is changed to allow all systems to bind to it!
-bind_ip = "127.0.0.1"
+bind_ip = "0.0.0.0"
 max_incoming_connections = 65536
 wire_object_check = true
 ipv6 = false
@@ -216,7 +216,7 @@ pid_file_path = ""
 
 [mongos.net]
 port = 27017
-bind_ip = "127.0.0.1"
+bind_ip = "0.0.0.0"
 max_incoming_connections = 65536
 wire_object_check = true
 ipv6 = false
@@ -244,7 +244,7 @@ ipv6 = false
 
 [mongos.security]
 key_file = ""
-cluster_auth_mode = "keyFile"
+cluster_auth_mode = ""
 javascript_enabled = true
 
 	[mongos.security.sasl]
