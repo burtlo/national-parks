@@ -2,11 +2,10 @@
 
 ## Build the application (Mac)
 
-Install Maven and Tomcat. I am assuming that java is already installed with these tools.
+Install Maven. I am assuming that java is already installed with these tools.
 
 ```
 $ brew install maven
-$ brew install tomcat
 ```
 
 ## Populate the database
@@ -18,6 +17,12 @@ $ mongoimport --drop -d demo -c nationalparks --type json --jsonArray --file ./n
 ```
 
 ## Run the application (Mac)
+
+Install Tomcat
+
+```
+$ brew install tomcat
+```
 
 Copy the built war into tomcat's war directory.
 
