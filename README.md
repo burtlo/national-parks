@@ -19,10 +19,16 @@ Visit http://localhost:8080/national-parks
 >
 > $ export HAB_DOCKER_OPTS="-p 8080:8080"
 
-## Populate the database
 
-Add all the national parks data to the mongo database
+## Build the databse (Habitat)
 
 ```
-$ mongoimport --drop -d demo -c nationalparks --type json --jsonArray --file ./national-parks.json $*
+$ hab studio enter
+[1][default:/src:0]# build mongodb
+```
+
+## Run the database (Habitat)
+
+```
+$ hab sup start results/origin-mongodb-3.2.9-TIMESTMAP.hart
 ```
