@@ -8,12 +8,9 @@ pkg_deps=( core/tomcat8 core/jre8 )
 pkg_svc_user=root
 
 do_build() {
-    cp -r src $HAB_CACHE_SRC_PATH/$pkg_dirname/src
-    cp pom.xml $HAB_CACHE_SRC_PATH/$pkg_dirname/pom.xml
-    cd $HAB_CACHE_SRC_PATH/$pkg_dirname
     mvn package
 }
 
 do_install() {
-    cp $HAB_CACHE_SRC_PATH/$pkg_dirname/target/$pkg_name.war $pkg_prefix/
+    cp target/$pkg_name.war $pkg_prefix
 }

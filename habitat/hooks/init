@@ -1,0 +1,10 @@
+#!/bin/bash
+
+exec 2>&1
+
+echo "Preparing TOMCAT_HOME..."
+
+# Create a Tomcat root for this app in the package's service directory
+cp -a {{pkgPathFor "core/tomcat8"}}/tc {{pkg.svc_var_path}}/
+
+echo "Done preparing TOMCAT_HOME"
